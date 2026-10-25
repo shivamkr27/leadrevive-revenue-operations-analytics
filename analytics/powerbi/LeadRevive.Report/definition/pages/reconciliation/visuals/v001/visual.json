@@ -1,0 +1,245 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "v001",
+  "position": {
+    "x": 25,
+    "y": 180,
+    "z": 1,
+    "width": 1230,
+    "height": 440,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Lead count"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Lead count",
+              "nativeQueryRef": "KPI Lead count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Contacted"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Contacted",
+              "nativeQueryRef": "KPI Contacted"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Uncontacted"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Uncontacted",
+              "nativeQueryRef": "KPI Uncontacted"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Qualified"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Qualified",
+              "nativeQueryRef": "KPI Qualified"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Won"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Won",
+              "nativeQueryRef": "KPI Won"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Scheduled"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Scheduled",
+              "nativeQueryRef": "KPI Scheduled"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Overdue"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Overdue",
+              "nativeQueryRef": "KPI Overdue"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Response coverage"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Response coverage",
+              "nativeQueryRef": "KPI Response coverage"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Qualified rate"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Qualified rate",
+              "nativeQueryRef": "KPI Qualified rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Win rate"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Win rate",
+              "nativeQueryRef": "KPI Win rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Overdue rate"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Overdue rate",
+              "nativeQueryRef": "KPI Overdue rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Median response hours"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Median response hours",
+              "nativeQueryRef": "KPI Median response hours"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Pipeline exposure INR"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Pipeline exposure INR",
+              "nativeQueryRef": "KPI Pipeline exposure INR"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Calculated DAX values \u00b7 compare with KPI CSV at identical snapshot'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#214D40'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

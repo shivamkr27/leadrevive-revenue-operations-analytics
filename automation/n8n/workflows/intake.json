@@ -1,0 +1,169 @@
+{
+  "id": "LeadReviveIntake",
+  "name": "LeadRevive W1 - Intake, validate and assign",
+  "active": false,
+  "nodes": [
+    {
+      "id": "1b6c8a3a-1f3e-50a2-8cf1-e61184de4304",
+      "name": "Authenticated intake webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        220
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "leadrevive/intake",
+        "authentication": "headerAuth",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "webhookId": "leadrevive-intake",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "leadrevive-backend-header",
+          "name": "LeadRevive local shared header"
+        }
+      }
+    },
+    {
+      "id": "4eb80a55-68cd-5619-a8f8-e210d2facd98",
+      "name": "Validate, deduplicate and assign",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        300,
+        220
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://backend:8000/api/integrations/n8n/intake",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({idempotency_key:$json.body.idempotency_key, execution_id:$execution.id,lead:$json.body.lead}) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "leadrevive-backend-header",
+          "name": "LeadRevive local shared header"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 1000
+    },
+    {
+      "id": "fa993761-aaaf-5807-bac1-4cc296b7e2f1",
+      "name": "Intake succeeded?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        600,
+        220
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "Intake succeeded?-condition",
+              "leftValue": "={{ $json.status === 'succeeded' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "2ca53f13-4b54-50fc-8ae7-def46064f5a6",
+      "name": "Audited result",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        180
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "a46ab02d-f598-59d7-905b-8f6969c772b8",
+      "name": "Stop and expose failure",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        460
+      ],
+      "parameters": {
+        "errorMessage": "={{ $json.failure_reason || 'LeadRevive operation failed; inspect durable run and delivery logs.' }}"
+      }
+    }
+  ],
+  "connections": {
+    "Authenticated intake webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate, deduplicate and assign",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate, deduplicate and assign": {
+      "main": [
+        [
+          {
+            "node": "Intake succeeded?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Intake succeeded?": {
+      "main": [
+        [
+          {
+            "node": "Audited result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and expose failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Kolkata",
+    "saveManualExecutions": true
+  },
+  "pinData": {},
+  "tags": []
+}

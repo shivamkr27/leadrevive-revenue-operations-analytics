@@ -1,0 +1,16 @@
+{
+  "origin": "SYNTHETIC",
+  "seed": 42,
+  "raw_row_count": 800,
+  "as_of_utc": "2026-10-24T00:00:00Z",
+  "sha256": "70170e9f10158b473aceafb5d4e90a2f152a21abc60b802c0255da03f23ed0f0",
+  "fixture_counts": {
+    "conflicting_identity": 7,
+    "exact_duplicate": 7,
+    "invalid_email": 8,
+    "malformed_value": 8,
+    "missing_company": 8,
+    "unknown_stage": 8,
+    "valid": 754
+  }
+}

@@ -1,0 +1,14 @@
+﻿metric,application,sql,csv,difference,status,power_bi,power_bi_status
+new_leads,758,758,758,0,PASS,758,PASS: Desktop DAX verified
+contacted,574,574,574,0,PASS,574,PASS: Desktop DAX verified
+uncontacted,184,184,184,0,PASS,184,PASS: Desktop DAX verified
+won,64,64,64,0,PASS,64,PASS: Desktop DAX verified
+qualified,383,383,383,0,PASS,383,PASS: Desktop DAX verified
+active_scheduled,586,586,586,0,PASS,586,PASS: Desktop DAX verified
+overdue,411,411,411,0,PASS,411,PASS: Desktop DAX verified
+first_response_coverage,0.7572559366754618,0.7572559366754618,0.7572559366754618,0,PASS,0.7572559366754618,PASS: Desktop DAX verified
+qualified_rate,0.5052770448548812,0.5052770448548812,0.5052770448548812,0,PASS,0.5052770448548812,PASS: Desktop DAX verified
+win_rate,0.08443271767810026,0.08443271767810026,0.08443271767810026,0,PASS,0.08443271767810026,PASS: Desktop DAX verified
+overdue_rate,0.7013651877133106,0.7013651877133106,0.7013651877133106,0,PASS,0.7013651877133106,PASS: Desktop DAX verified
+median_first_response_hours,59.0,59.0,59.0,0,PASS,59,PASS: Desktop DAX verified
+pipeline_exposure_inr,104279000.0,104279000.0,104279000.0,0,PASS,104279000,PASS: Desktop DAX verified

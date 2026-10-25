@@ -1,0 +1,8 @@
+﻿segment,leads,open,contacted,qualified,won,scheduled,overdue,pipeline_exposure_inr,sla_met,sla_breached,awaiting_within_sla,recovery_rule_eligible
+Contacted,134,134,134,0,0,124,90,22686000.0,29,105,0,85
+Lost,59,0,59,0,0,0,0,0,12,47,0,0
+Meeting,75,75,74,75,0,68,46,10525000.0,17,57,1,40
+New,182,182,0,0,0,165,113,29127000.0,0,182,0,110
+Proposal,99,99,99,99,0,93,67,17292000.0,17,82,0,62
+Qualified,145,145,144,145,0,136,95,24649000.0,28,116,1,87
+Won,64,0,64,64,64,0,0,0,16,48,0,0

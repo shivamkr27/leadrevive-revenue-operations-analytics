@@ -1,0 +1,109 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "v006",
+  "position": {
+    "x": 660,
+    "y": 180,
+    "z": 6,
+    "width": 600,
+    "height": 420,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "lead_source"
+                }
+              },
+              "queryRef": "LeadFacts.lead_source",
+              "nativeQueryRef": "lead_source"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Qualified"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Qualified",
+              "nativeQueryRef": "KPI Qualified"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LeadFacts"
+                    }
+                  },
+                  "Property": "KPI Won"
+                }
+              },
+              "queryRef": "LeadFacts.KPI Won",
+              "nativeQueryRef": "KPI Won"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Qualified and Won by source'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#214D40'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

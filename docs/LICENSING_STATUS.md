@@ -1,0 +1,11 @@
+# MIT scope and compatibility assessment
+
+The owner authorized MIT for the original project material, conditional on the third-party review. The root [LICENSE](../LICENSE) records MIT for original LeadRevive material to the extent of the owner's rights. Existing third-party rights and product-interface/trademark material are excluded; see [notices](../THIRD_PARTY_NOTICES.md).
+
+No incompatible incorporated reference-project code/data was identified. Reference A is inspiration-only and unlicensed material was not copied; Reference B is concept-only. Original workflow JSON is distinct from the separately installed n8n engine. MIT/BSD/ISC/Apache library dependencies do not become relicensed by this grant; their notices are preserved. LGPL psycopg, MPL axe and CC-BY caniuse-lite retain their separate terms. Optional PyMuPDF is AGPL/commercial, not an MIT component; no distributed project source imports it, and its binary is not bundled. Merely declaring it as optional preview tooling does not relicense it. python-pptx/python-docx template notices are included for generated documents.
+
+The current distribution is SOURCE ONLY: original code, synthetic fixtures, editable models/workflows and authored outputs. It includes no Python installations, node_modules, compiled frontend, container images, external-service source, Power BI Desktop or Office. The reviewed separate-program/dependency boundaries present no identified blocker to MIT for the original material in this package. This is a scoped assessment, not a universal legal clearance for modified upstream software or binary/image redistribution.
+
+Preserve upstream notices. Future integration of AGPL code, modified covered components, commercial n8n hosting, or distribution of runtime/image bundles must be reviewed under the applicable terms. No incompatible material has knowingly been included and no commercial license has been assumed or purchased.
+
+Sources: [MIT](https://opensource.org/license/mit), [n8n license](https://github.com/n8n-io/n8n/blob/master/LICENSE.md), [PyMuPDF terms](https://pymupdf.readthedocs.io/en/latest/about.html#license-and-copyright), pinned distribution metadata and the [component inventory](THIRD_PARTY_ATTRIBUTION.md).

@@ -1,0 +1,7 @@
+﻿reason,records,origin
+company: required,8,SYNTHETIC
+email: invalid format,8,SYNTHETIC
+estimated_deal_value_inr: require nonnegative INR with at most two decimals,8,SYNTHETIC
+exact duplicate; existing record preserved,7,SYNTHETIC
+identity collision; manual review required,7,SYNTHETIC
+stage: unknown stage,8,SYNTHETIC

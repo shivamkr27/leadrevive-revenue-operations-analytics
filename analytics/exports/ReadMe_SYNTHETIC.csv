@@ -1,0 +1,13 @@
+﻿field,value
+snapshot_id,9a80207b950500a9
+origin,SYNTHETIC
+as_of_utc,2026-10-24T15:44:29.684236Z
+window_start,1900-01-01T00:00:00.000000Z
+window_end,2100-01-01T00:00:00.000000Z
+source,PostgreSQL repeatable-read extraction
+interpretation,"Current-state snapshot, not historical reconstruction. Estimated pipeline exposure is not recovered revenue. External live delivery disabled."
+Experiment assumptions,Manual reviews at hours 12 and 24; hourly automation scan; identical assumed two-hour owner response. No sales or revenue outcome modeled.
+Operational scope,All-time recorded local test ledger at extraction. Includes deliberate failure tests; not production reliability.
+SLA definition,Elapsed hours; met + breached + awaiting within SLA = cohort. Contacted-only median.
+Source conversion,"Current cohort ratios, not causal source effectiveness; open leads remain unresolved."
+Recovery eligibility,Pre-cooldown business rules only; not a promise that the next run creates a reminder.

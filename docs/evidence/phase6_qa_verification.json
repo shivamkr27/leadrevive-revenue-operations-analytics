@@ -1,0 +1,17 @@
+{
+  "result": "passed",
+  "checks": [
+    "Clean container serves compiled React, OpenAPI and migrated PostgreSQL API",
+    "Fresh 754-lead PostgreSQL generation reconciles all 13 KPIs; historical 758 snapshot untouched",
+    "Normal and empty report packs download with valid hashes; null median and pinned analytics preserved",
+    "Repeat startup skips seeding/migrations; API restart preserves persisted leads",
+    "Stopped QA Mailpit reports unreachable, not successful sending",
+    "Stopped QA n8n returns 503 and records durable failure, without fabricated success",
+    "QA providers restored; external live delivery disabled"
+  ],
+  "reports": [
+    "7b2c44dd347b4b05a059ab0c8fca5d27",
+    "270ef48f28774e97bbb999c87ee9090f"
+  ],
+  "generation_id": "a3e42c60bc584965801c5db2f4a68e48"
+}

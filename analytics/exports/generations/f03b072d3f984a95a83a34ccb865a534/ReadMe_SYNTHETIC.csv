@@ -1,0 +1,15 @@
+﻿field,value
+snapshot_id,9a80207b950500a9
+generation_id,f03b072d3f984a95a83a34ccb865a534
+data_revision,d0b3c24632131978efcdfa1d8cb57f1d46347e76d109e3a596ef0f8c8084c401
+origin,SYNTHETIC
+as_of_utc,2026-10-24T15:44:29.684236Z
+window_start,1900-01-01T00:00:00.000000Z
+window_end,2100-01-01T00:00:00.000000Z
+source,PostgreSQL repeatable-read extraction
+interpretation,"Current-state snapshot, not historical reconstruction. Estimated pipeline exposure is not recovered revenue. External live delivery disabled."
+model_sha256,d66b0c8d0f15c20317839935fab46b521d63ab10f1457d311832b24260e25f90
+application_version,0.5.0
+experiment_assumptions,Manual reviews at hours 12 and 24; hourly automation scan; identical assumed two-hour owner response. No sales or revenue outcome modeled.
+operational_scope,All-time local test ledger including deliberate faults; not production reliability
+composition,"{""Seed dataset"": 754, ""Controlled fixture"": 4}"

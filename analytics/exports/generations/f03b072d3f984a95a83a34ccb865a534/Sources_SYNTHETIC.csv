@@ -1,0 +1,6 @@
+﻿segment,leads,open,contacted,qualified,won,scheduled,overdue,pipeline_exposure_inr,sla_met,sla_breached,awaiting_within_sla,recovery_rule_eligible
+Event,152,130,105,68,11,121,79,19890000.0,21,131,0,75
+InboundEmail,152,130,123,79,10,120,90,20709000.0,26,126,0,84
+Manual,156,128,122,89,20,116,70,19300000.0,26,128,2,66
+Referral,152,131,111,74,10,121,94,23704000.0,19,133,0,87
+Web,146,116,113,73,13,108,78,20676000.0,27,119,0,72

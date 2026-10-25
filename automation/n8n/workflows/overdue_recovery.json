@@ -1,0 +1,294 @@
+{
+  "id": "LeadReviveRecovery",
+  "name": "LeadRevive W2 - Overdue recovery and owner digests",
+  "active": false,
+  "nodes": [
+    {
+      "id": "421fa4f0-a589-5271-b97d-27ab7dc96973",
+      "name": "Hourly recovery scan",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        80
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "0ffc09cd-11e3-53cc-aaa5-03757c413adb",
+      "name": "Authenticated recovery webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        340
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "leadrevive/recovery",
+        "authentication": "headerAuth",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "webhookId": "leadrevive-recovery",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "leadrevive-backend-header",
+          "name": "LeadRevive local shared header"
+        }
+      }
+    },
+    {
+      "id": "3dfa167c-a24b-5c61-ae3b-1b518b014517",
+      "name": "Plan owner digests and reserve reminders",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        300,
+        220
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://backend:8000/api/integrations/n8n/recovery",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({idempotency_key:$json.body?.idempotency_key || ('hourly-'+$execution.id),execution_id:$execution.id,...($json.body?.lead_ids ? {lead_ids:$json.body.lead_ids}:{})}) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "leadrevive-backend-header",
+          "name": "LeadRevive local shared header"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 1000
+    },
+    {
+      "id": "9cb1594b-2988-5a61-b066-999452eb9cf0",
+      "name": "Scan succeeded?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        550,
+        220
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "Scan succeeded?-condition",
+              "leftValue": "={{ $json.status === 'succeeded' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "d8ffb647-b4a8-5c25-bd05-cdfd17973eed",
+      "name": "Deliver current owner digests to Mailpit",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        790,
+        220
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://backend:8000/api/integrations/n8n/dispatch",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({idempotency_key:'recovery-dispatch-'+$execution.id,execution_id:$execution.id,draft_ids:$json.draft_ids}) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "leadrevive-backend-header",
+          "name": "LeadRevive local shared header"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 1000
+    },
+    {
+      "id": "94c1ad1a-f70e-59be-b9cb-d99d5818222d",
+      "name": "Sink accepted?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1020,
+        220
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "Sink accepted?-condition",
+              "leftValue": "={{ $json.status === 'succeeded' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "0753789b-81dc-59bb-8e71-07d543a89762",
+      "name": "Audited Mailpit result",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        180
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "a46ab02d-f598-59d7-905b-8f6969c772b8",
+      "name": "Stop and expose failure",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        460
+      ],
+      "parameters": {
+        "errorMessage": "={{ $json.failure_reason || 'LeadRevive operation failed; inspect durable run and delivery logs.' }}"
+      }
+    }
+  ],
+  "connections": {
+    "Hourly recovery scan": {
+      "main": [
+        [
+          {
+            "node": "Plan owner digests and reserve reminders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Authenticated recovery webhook": {
+      "main": [
+        [
+          {
+            "node": "Plan owner digests and reserve reminders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Plan owner digests and reserve reminders": {
+      "main": [
+        [
+          {
+            "node": "Scan succeeded?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scan succeeded?": {
+      "main": [
+        [
+          {
+            "node": "Deliver current owner digests to Mailpit",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and expose failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deliver current owner digests to Mailpit": {
+      "main": [
+        [
+          {
+            "node": "Sink accepted?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sink accepted?": {
+      "main": [
+        [
+          {
+            "node": "Audited Mailpit result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and expose failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Kolkata",
+    "saveManualExecutions": true
+  },
+  "pinData": {},
+  "tags": []
+}

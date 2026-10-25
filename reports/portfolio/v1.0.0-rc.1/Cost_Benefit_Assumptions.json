@@ -1,0 +1,36 @@
+{
+  "assumptions": {
+    "monthly_actions": 200,
+    "hourly_capacity_value_inr": 300,
+    "setup_hours": 24,
+    "maintenance_hours_month": 4,
+    "amortization_months": 12
+  },
+  "scenarios": [
+    {
+      "assumed_minutes_saved_per_action": 1,
+      "modeled_capacity_hours": 3.33,
+      "gross_capacity_value_inr": 1000.0,
+      "maintenance_value_inr": 1200,
+      "amortized_setup_value_inr": 600.0,
+      "net_capacity_equivalent_inr": -800.0
+    },
+    {
+      "assumed_minutes_saved_per_action": 2,
+      "modeled_capacity_hours": 6.67,
+      "gross_capacity_value_inr": 2000.0,
+      "maintenance_value_inr": 1200,
+      "amortized_setup_value_inr": 600.0,
+      "net_capacity_equivalent_inr": 200.0
+    },
+    {
+      "assumed_minutes_saved_per_action": 3,
+      "modeled_capacity_hours": 10.0,
+      "gross_capacity_value_inr": 3000.0,
+      "maintenance_value_inr": 1200,
+      "amortized_setup_value_inr": 600.0,
+      "net_capacity_equivalent_inr": 1200.0
+    }
+  ],
+  "interpretation": "Illustrative assumptions, not observed savings, cash flow, vendor prices or ROI. Hardware, electricity and licensing costs are not measured; capacity value is not revenue."
+}

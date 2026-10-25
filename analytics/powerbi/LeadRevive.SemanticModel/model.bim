@@ -1,0 +1,416 @@
+{
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "en-US",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "LeadFacts",
+        "columns": [
+          {
+            "name": "lead_id",
+            "dataType": "string",
+            "sourceColumn": "lead_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "origin",
+            "dataType": "string",
+            "sourceColumn": "origin",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "created_at",
+            "dataType": "string",
+            "sourceColumn": "created_at",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lead_source",
+            "dataType": "string",
+            "sourceColumn": "lead_source",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "campaign",
+            "dataType": "string",
+            "sourceColumn": "campaign",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "stage",
+            "dataType": "string",
+            "sourceColumn": "stage",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "owner",
+            "dataType": "string",
+            "sourceColumn": "owner",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "owner_id",
+            "dataType": "string",
+            "sourceColumn": "owner_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "estimated_value_inr",
+            "dataType": "double",
+            "sourceColumn": "estimated_value_inr",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "open",
+            "dataType": "int64",
+            "sourceColumn": "open",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "contacted",
+            "dataType": "int64",
+            "sourceColumn": "contacted",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "qualified",
+            "dataType": "int64",
+            "sourceColumn": "qualified",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "won",
+            "dataType": "int64",
+            "sourceColumn": "won",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "scheduled",
+            "dataType": "int64",
+            "sourceColumn": "scheduled",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "overdue",
+            "dataType": "int64",
+            "sourceColumn": "overdue",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "next_action_at",
+            "dataType": "string",
+            "sourceColumn": "next_action_at",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "first_response_hours",
+            "dataType": "double",
+            "sourceColumn": "first_response_hours",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "response_sla_hours",
+            "dataType": "int64",
+            "sourceColumn": "response_sla_hours",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sla_met",
+            "dataType": "int64",
+            "sourceColumn": "sla_met",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sla_breached",
+            "dataType": "int64",
+            "sourceColumn": "sla_breached",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "awaiting_within_sla",
+            "dataType": "int64",
+            "sourceColumn": "awaiting_within_sla",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "pipeline_exposure_inr",
+            "dataType": "double",
+            "sourceColumn": "pipeline_exposure_inr",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "priority_score",
+            "dataType": "double",
+            "sourceColumn": "priority_score",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "recovery_rule_eligible",
+            "dataType": "int64",
+            "sourceColumn": "recovery_rule_eligible",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cohort_kind",
+            "dataType": "string",
+            "sourceColumn": "cohort_kind",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "LeadFacts",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"D:/project 1 -nontech/analytics/exports/LeadFacts_SYNTHETIC.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Clean = Table.ReplaceValue(Headers,\"\",null,Replacer.ReplaceValue,Table.ColumnNames(Headers)),",
+                "    Typed = Table.TransformColumnTypes(Clean, {{\"lead_id\", type text}, {\"origin\", type text}, {\"created_at\", type text}, {\"lead_source\", type text}, {\"campaign\", type text}, {\"stage\", type text}, {\"owner\", type text}, {\"owner_id\", type text}, {\"estimated_value_inr\", type number}, {\"open\", Int64.Type}, {\"contacted\", Int64.Type}, {\"qualified\", Int64.Type}, {\"won\", Int64.Type}, {\"scheduled\", Int64.Type}, {\"overdue\", Int64.Type}, {\"next_action_at\", type text}, {\"first_response_hours\", type number}, {\"response_sla_hours\", Int64.Type}, {\"sla_met\", Int64.Type}, {\"sla_breached\", Int64.Type}, {\"awaiting_within_sla\", Int64.Type}, {\"pipeline_exposure_inr\", type number}, {\"priority_score\", type number}, {\"recovery_rule_eligible\", Int64.Type}, {\"cohort_kind\", type text}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "KPI Lead count",
+            "expression": "COUNTROWS(LeadFacts)",
+            "formatString": "0"
+          },
+          {
+            "name": "KPI Contacted",
+            "expression": "SUM(LeadFacts[contacted])",
+            "formatString": "0"
+          },
+          {
+            "name": "KPI Uncontacted",
+            "expression": "[KPI Lead count]-[KPI Contacted]",
+            "formatString": "0"
+          },
+          {
+            "name": "KPI Qualified",
+            "expression": "SUM(LeadFacts[qualified])",
+            "formatString": "0"
+          },
+          {
+            "name": "KPI Won",
+            "expression": "SUM(LeadFacts[won])",
+            "formatString": "0"
+          },
+          {
+            "name": "KPI Open leads",
+            "expression": "SUM(LeadFacts[open])",
+            "formatString": "0"
+          },
+          {
+            "name": "KPI Scheduled",
+            "expression": "SUM(LeadFacts[scheduled])",
+            "formatString": "0"
+          },
+          {
+            "name": "KPI Overdue",
+            "expression": "SUM(LeadFacts[overdue])",
+            "formatString": "0"
+          },
+          {
+            "name": "KPI Response coverage",
+            "expression": "DIVIDE([KPI Contacted],[KPI Lead count])",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "KPI Qualified rate",
+            "expression": "DIVIDE([KPI Qualified],[KPI Lead count])",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "KPI Win rate",
+            "expression": "DIVIDE([KPI Won],[KPI Lead count])",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "KPI Overdue rate",
+            "expression": "DIVIDE([KPI Overdue],[KPI Scheduled])",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "KPI Median response hours",
+            "expression": "MEDIAN(LeadFacts[first_response_hours])",
+            "formatString": "0.0"
+          },
+          {
+            "name": "KPI Pipeline exposure INR",
+            "expression": "SUM(LeadFacts[pipeline_exposure_inr])",
+            "formatString": "\u20b9 #,##0"
+          },
+          {
+            "name": "KPI SLA met",
+            "expression": "SUM(LeadFacts[sla_met])",
+            "formatString": "0"
+          },
+          {
+            "name": "KPI SLA breached",
+            "expression": "SUM(LeadFacts[sla_breached])",
+            "formatString": "0"
+          },
+          {
+            "name": "KPI Awaiting within SLA",
+            "expression": "SUM(LeadFacts[awaiting_within_sla])",
+            "formatString": "0"
+          },
+          {
+            "name": "KPI Rule eligible",
+            "expression": "SUM(LeadFacts[recovery_rule_eligible])",
+            "formatString": "0"
+          }
+        ]
+      },
+      {
+        "name": "Operations",
+        "columns": [
+          {
+            "name": "metric",
+            "dataType": "string",
+            "sourceColumn": "metric",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "value",
+            "dataType": "string",
+            "sourceColumn": "value",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Operations",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"D:/project 1 -nontech/analytics/exports/Operations_SYNTHETIC.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Clean = Table.ReplaceValue(Headers,\"\",null,Replacer.ReplaceValue,Table.ColumnNames(Headers)),",
+                "    Typed = Table.TransformColumnTypes(Clean, {{\"metric\", type text}, {\"value\", type text}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Experiment",
+        "columns": [
+          {
+            "name": "arm",
+            "dataType": "string",
+            "sourceColumn": "arm",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cohort",
+            "dataType": "int64",
+            "sourceColumn": "cohort",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "surfaced",
+            "dataType": "int64",
+            "sourceColumn": "surfaced",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "followups_completed",
+            "dataType": "int64",
+            "sourceColumn": "followups_completed",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "overdue_remaining",
+            "dataType": "int64",
+            "sourceColumn": "overdue_remaining",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "action_rate",
+            "dataType": "double",
+            "sourceColumn": "action_rate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "timing_basis",
+            "dataType": "string",
+            "sourceColumn": "timing_basis",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Experiment",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"D:/project 1 -nontech/analytics/exports/Experiment_SYNTHETIC.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Clean = Table.ReplaceValue(Headers,\"\",null,Replacer.ReplaceValue,Table.ColumnNames(Headers)),",
+                "    Typed = Table.TransformColumnTypes(Clean, {{\"arm\", type text}, {\"cohort\", Int64.Type}, {\"surfaced\", Int64.Type}, {\"followups_completed\", Int64.Type}, {\"overdue_remaining\", Int64.Type}, {\"action_rate\", type number}, {\"timing_basis\", type text}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Snapshot",
+        "columns": [
+          {
+            "name": "field",
+            "dataType": "string",
+            "sourceColumn": "field",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "value",
+            "dataType": "string",
+            "sourceColumn": "value",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Snapshot",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"D:/project 1 -nontech/analytics/exports/ReadMe_SYNTHETIC.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Clean = Table.ReplaceValue(Headers,\"\",null,Replacer.ReplaceValue,Table.ColumnNames(Headers)),",
+                "    Typed = Table.TransformColumnTypes(Clean, {{\"field\", type text}, {\"value\", type text}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "LeadReviveSnapshot",
+        "value": "9a80207b950500a9"
+      }
+    ]
+  }
+}

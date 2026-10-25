@@ -1,0 +1,8 @@
+﻿workflow,status,jobs,attempts
+dispatch,failed,5,11
+dispatch,succeeded,30,30
+intake,succeeded,2,2
+n8n_trigger,failed,1,1
+recovery,succeeded,14,14
+status_sync,failed,2,4
+status_sync,succeeded,2,2

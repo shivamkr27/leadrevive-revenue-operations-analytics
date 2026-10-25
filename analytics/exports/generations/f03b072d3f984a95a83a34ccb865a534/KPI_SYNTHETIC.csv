@@ -1,0 +1,14 @@
+﻿metric,value
+new_leads,758
+contacted,574
+uncontacted,184
+won,64
+qualified,383
+active_scheduled,586
+overdue,411
+first_response_coverage,0.7572559366754618
+qualified_rate,0.5052770448548812
+win_rate,0.08443271767810026
+overdue_rate,0.7013651877133106
+median_first_response_hours,59.0
+pipeline_exposure_inr,104279000.0

@@ -1,0 +1,35 @@
+{
+  "snapshot_id": "9a80207b950500a9",
+  "generation_id": "f03b072d3f984a95a83a34ccb865a534",
+  "data_revision": "d0b3c24632131978efcdfa1d8cb57f1d46347e76d109e3a596ef0f8c8084c401",
+  "provenance": {
+    "schema_version": "2",
+    "application_version": "0.5.0",
+    "domain_sha256": "d6264d7113dc6416628359dd9865855d56092f1a57d2128bb41d049050546dc4",
+    "model_sha256": "d66b0c8d0f15c20317839935fab46b521d63ab10f1457d311832b24260e25f90",
+    "exporter_sha256": "e3a624b3e34a3860718723d7d6a93ac6c449fcd52a957f56a6354d11402db322",
+    "experiment_sha256": "14f4b9f799b92dbf6fb6228532700f46cf327101c2a67f7c822c9e4a3458b2ee",
+    "foundation_sha256": "454fa90bf63e51c7a1d396a2dfb369f0d4ca80a21579ea8bff900af84e770fdb",
+    "automation_sha256": "d180641c2825fbf46903d344ed536c62e6d203dbb4b56baefee70a16a29ec191",
+    "operations_sha256": "c4c082527bf59d7121577be7c6285863cef91a427740a582da6d06a5f073fcf4"
+  },
+  "origin": "SYNTHETIC",
+  "files": {
+    "ExperimentEvents_SYNTHETIC.csv": "6b26827712e094019bdfdd97bc2bc95eb119e49aca4a174f46a0ec27ad9b6233",
+    "ExperimentRules_SYNTHETIC.csv": "7935845ca28d3b8de4df626f9f03904838cf7d29013b5f62211a1392b5961864",
+    "experiment_engine_verification.json": "4463d7cc28ac0f62f276111d490ad9378b2f0035890600ef0a903590d3a812cd",
+    "Experiment_SYNTHETIC.csv": "c5e4ea9c95437c5c01548f3fc4f6dd2a327770feeab5e746f182773c7813e1dc",
+    "KPI_SYNTHETIC.csv": "0b2abb9e60305905cbed29901c61820bd88b0d7cedd08c324648003d1763fd41",
+    "LeadFacts_SYNTHETIC.csv": "322b13a3f09b561551bd55303cb44fe84fea025d8aceeb1d6465ef4293a23cff",
+    "LeadRevive_Analysis_SYNTHETIC.xlsx": "662b282e26918b67877cfb168dee666e364565db78070b4cb3e63a2a19914d61",
+    "Operations_SYNTHETIC.csv": "7c5bdf43ba740af4dfe585be5172daa1b485ba5eab0992f58e07905e5a0f84e1",
+    "Owners_SYNTHETIC.csv": "2f53c41d5bb8f40f78165f2c48e2cb9dd8c001ebb4bf38e7002b8e156e5ce8a0",
+    "Quality_SYNTHETIC.csv": "45c7604d78c87863465ee6549d9d4248836c2cf2a7ef2858cb8b1c46b3c8dff4",
+    "ReadMe_SYNTHETIC.csv": "9f015eda2a0503cae956de819a8bb16957e4b781aba64aa67a9b911755213790",
+    "Reconciliation_SYNTHETIC.csv": "da3bf734ac970fb3eb34652497c4d0419faac1f1496ad5ea64aed22b08088726",
+    "snapshot.json": "876794064e901e80df07b5cd990d3c1b9c32fe5c1eec1cc32233c5534f8079b5",
+    "Sources_SYNTHETIC.csv": "fe995ec3b02783038c2504e5fcb973c370b5c22b02c5ba3c8ec58824c18d36d7",
+    "Stages_SYNTHETIC.csv": "62022ec9b80e8abf9caa4af5293e6e7795d3367357b60df6c8432aef3fabc6c6",
+    "Workflow_SYNTHETIC.csv": "8d87e775ba1741512247cd7808778cfeb5f35cd4ad7fadb125bd4bd6e1a335b7"
+  }
+}

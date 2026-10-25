@@ -1,0 +1,161 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "v001",
+  "position": {
+    "x": 25,
+    "y": 35,
+    "z": 1,
+    "width": 1230,
+    "height": 550,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reconciliation"
+                    }
+                  },
+                  "Property": "metric"
+                }
+              },
+              "queryRef": "Reconciliation.metric",
+              "nativeQueryRef": "metric"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reconciliation"
+                    }
+                  },
+                  "Property": "application"
+                }
+              },
+              "queryRef": "Reconciliation.application",
+              "nativeQueryRef": "application"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reconciliation"
+                    }
+                  },
+                  "Property": "sql"
+                }
+              },
+              "queryRef": "Reconciliation.sql",
+              "nativeQueryRef": "sql"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reconciliation"
+                    }
+                  },
+                  "Property": "csv"
+                }
+              },
+              "queryRef": "Reconciliation.csv",
+              "nativeQueryRef": "csv"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reconciliation"
+                    }
+                  },
+                  "Property": "excel"
+                }
+              },
+              "queryRef": "Reconciliation.excel",
+              "nativeQueryRef": "excel"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reconciliation"
+                    }
+                  },
+                  "Property": "KPI Actual DAX"
+                }
+              },
+              "queryRef": "Reconciliation.KPI Actual DAX",
+              "nativeQueryRef": "KPI Actual DAX"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reconciliation"
+                    }
+                  },
+                  "Property": "KPI SQL check"
+                }
+              },
+              "queryRef": "Reconciliation.KPI SQL check",
+              "nativeQueryRef": "KPI SQL check"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'13 KPIs \u00b7 independently calculated Desktop DAX vs frozen SQL \u00b7 null-aware'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#214D40'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

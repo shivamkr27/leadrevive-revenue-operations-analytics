@@ -1,0 +1,20 @@
+{
+  "result": "passed",
+  "snapshot_id": "9a80207b950500a9",
+  "reconciled_kpis": 13,
+  "manifest_files": 16,
+  "executed_management_queries": 10,
+  "original_rows_preserved": {
+    "config": 5,
+    "import_batches": 1,
+    "owners": 4,
+    "import_rejections": 46,
+    "leads": 754,
+    "audit_events": 754,
+    "exception_reviews": 0,
+    "lead_activities": 754,
+    "lead_merge_audit": 14,
+    "lead_status_history": 754
+  },
+  "power_bi_method": "DAX query against actual Power BI Desktop model"
+}

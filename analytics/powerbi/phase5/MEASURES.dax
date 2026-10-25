@@ -1,0 +1,35 @@
+KPI Lead count = COALESCE(COUNTROWS(LeadFacts),0)
+
+KPI Contacted = COALESCE(SUM(LeadFacts[contacted]),0)
+
+KPI Uncontacted = [KPI Lead count]-[KPI Contacted]
+
+KPI Qualified = COALESCE(SUM(LeadFacts[qualified]),0)
+
+KPI Won = COALESCE(SUM(LeadFacts[won]),0)
+
+KPI Open leads = SUM(LeadFacts[open])
+
+KPI Scheduled = COALESCE(SUM(LeadFacts[scheduled]),0)
+
+KPI Overdue = COALESCE(SUM(LeadFacts[overdue]),0)
+
+KPI Response coverage = DIVIDE([KPI Contacted],[KPI Lead count])
+
+KPI Qualified rate = DIVIDE([KPI Qualified],[KPI Lead count])
+
+KPI Win rate = DIVIDE([KPI Won],[KPI Lead count])
+
+KPI Overdue rate = DIVIDE([KPI Overdue],[KPI Scheduled])
+
+KPI Median response hours = MEDIAN(LeadFacts[first_response_hours])
+
+KPI Pipeline exposure INR = COALESCE(SUM(LeadFacts[pipeline_exposure_inr]),0)
+
+KPI SLA met = SUM(LeadFacts[sla_met])
+
+KPI SLA breached = SUM(LeadFacts[sla_breached])
+
+KPI Awaiting within SLA = SUM(LeadFacts[awaiting_within_sla])
+
+KPI Rule eligible = SUM(LeadFacts[recovery_rule_eligible])

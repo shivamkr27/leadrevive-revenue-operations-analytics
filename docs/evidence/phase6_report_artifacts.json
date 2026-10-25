@@ -1,0 +1,18 @@
+{
+  "result": "passed",
+  "snapshot_id": "9a80207b950500a9",
+  "data_revision": "d0b3c24632131978efcdfa1d8cb57f1d46347e76d109e3a596ef0f8c8084c401",
+  "generation_id": "f03b072d3f984a95a83a34ccb865a534",
+  "report_id": "f250e3e4ec4f48f1a9720f999caaf5d1",
+  "kpis_verified": 13,
+  "pdf_pages": 2,
+  "slides": 10,
+  "actual_screenshot_images": 4,
+  "canonical_leads_preserved": 758,
+  "canonical_lead_hash_preserved": true,
+  "business_workflows_preserved": 4,
+  "schedule_probe_inactive": true,
+  "external_email_enabled": false,
+  "report_hashes_verified": 5,
+  "pbix_sha256": "7551d5f88ac245891d3598db16beff690f05fa206f2ac20c35075991c6462293"
+}

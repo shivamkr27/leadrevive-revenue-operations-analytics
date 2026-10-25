@@ -1,0 +1,26 @@
+{
+  "snapshot_id": "9a80207b950500a9",
+  "data_revision": "d0b3c24632131978efcdfa1d8cb57f1d46347e76d109e3a596ef0f8c8084c401",
+  "images": [
+    {
+      "file": "SS11d_PowerBI_Analysis.png",
+      "caption": "Actual Power BI estimated exposure and workload; matching frozen snapshot.",
+      "sha256": "726cafeaf8fb2029d529d906fed2903c2cc500523de56751473020987101b623"
+    },
+    {
+      "file": "SS11a_PowerBI_Workflows.png",
+      "caption": "Actual Power BI local test ledger; includes deliberate failures.",
+      "sha256": "43d9b7523331b9b2af1386d4524dbef198a9f54583008b6d122c1dfba396a24f"
+    },
+    {
+      "file": "SS11b_PowerBI_Simulation.png",
+      "caption": "Actual Power BI modeled 40-event comparison; owner timing assumed.",
+      "sha256": "2ed01c98850682b7ce526f6bde21edabfdbd41f06845aaff4d12f6adc1eb60cc"
+    },
+    {
+      "file": "SS11c_PowerBI_Reconciliation.png",
+      "caption": "Actual Power BI row-by-row DAX reconciliation; 13 metrics.",
+      "sha256": "4a5f1b9117fc3bf8b662e11c60eb5aae69cf6113fd392ff4c493d2ba06d18991"
+    }
+  ]
+}

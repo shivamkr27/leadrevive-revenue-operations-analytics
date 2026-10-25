@@ -1,0 +1,3 @@
+﻿arm,cohort,surfaced,followups_completed,overdue_remaining,action_rate,timing_basis
+manual,40,40,20,20,0.5,MODELED hours; two-hour owner response assumed
+automation,40,40,34,6,0.85,MODELED hours; two-hour owner response assumed

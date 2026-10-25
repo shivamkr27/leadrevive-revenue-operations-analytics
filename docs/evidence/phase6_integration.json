@@ -1,0 +1,176 @@
+{
+  "result": "passed",
+  "scenario_key": "0a87f62410",
+  "checks": [
+    {
+      "name": "PostgreSQL health and Alembic head match",
+      "result": "passed",
+      "detail": null
+    },
+    {
+      "name": "Original baseline records match before scenarios",
+      "result": "passed",
+      "detail": null
+    },
+    {
+      "name": "W1 intake validates, persists, assigns owner and creates internal draft",
+      "result": "passed",
+      "detail": {
+        "processed": 1,
+        "skipped": 0,
+        "failed": 0,
+        "lead_id": "SYN-7F980C6F0EAA",
+        "draft_ids": [
+          "d53f16dc-c32b-5ac9-95cd-0ecd1352dbf7"
+        ],
+        "run_id": "7ba785f2-f6dd-453c-9d44-8a0947755e1e",
+        "status": "succeeded",
+        "replay": false,
+        "attempts": 1
+      }
+    },
+    {
+      "name": "Repeated intake is idempotent",
+      "result": "passed",
+      "detail": null
+    },
+    {
+      "name": "Future follow-up produces no overdue reminder",
+      "result": "passed",
+      "detail": null
+    },
+    {
+      "name": "Internal notification reaches real Mailpit SMTP",
+      "result": "passed",
+      "detail": null
+    },
+    {
+      "name": "A lead becoming overdue creates one owner digest and a real sink capture",
+      "result": "passed",
+      "detail": {
+        "processed": 1,
+        "skipped": 0,
+        "failed": 0,
+        "draft_ids": [
+          "80a39729-9f1f-5ab8-9978-6449111019dc"
+        ],
+        "digests": 1,
+        "run_id": "eaefb745-90e9-4b40-b5e7-94e9a2a3bcb0",
+        "status": "succeeded",
+        "replay": false,
+        "attempts": 1
+      }
+    },
+    {
+      "name": "Retry/new scan within cooldown creates no duplicate reminder",
+      "result": "passed",
+      "detail": null
+    },
+    {
+      "name": "Completed follow-up is excluded from further reminders",
+      "result": "passed",
+      "detail": null
+    },
+    {
+      "name": "n8n versioned status sync updates DB and audit",
+      "result": "passed",
+      "detail": null
+    },
+    {
+      "name": "Stale status event fails visibly and preserves latest state",
+      "result": "passed",
+      "detail": null
+    },
+    {
+      "name": "Unapproved preview and all live-mode requests are blocked",
+      "result": "passed",
+      "detail": null
+    },
+    {
+      "name": "Exact-content approval controls real n8n/Mailpit preview delivery",
+      "result": "passed",
+      "detail": null
+    },
+    {
+      "name": "Repeated send requests cannot create a second sink email",
+      "result": "passed",
+      "detail": null
+    },
+    {
+      "name": "Actual SMTP 451 is logged as failure, not delivery",
+      "result": "passed",
+      "detail": {
+        "delivery_id": "178422e8-015f-46db-a656-edaed0d32b99",
+        "draft_id": "e235cf2f-c0c1-51ec-bc24-008fa5358771",
+        "message_id": "leadrevive-e235cf2f-c0c1-51ec-bc24-008fa5358771@leadrevive.test",
+        "status": "failed",
+        "attempts": 1,
+        "attempted_at": "2026-10-25T06:55:11.188496Z",
+        "retry_at": "2026-10-25T06:56:11.188496Z",
+        "accepted_at": null,
+        "sink_message_id": null,
+        "error": "Mailpit SMTP rejected the test message (451)."
+      }
+    },
+    {
+      "name": "Retry after recovery succeeds once; replay does not resend",
+      "result": "passed",
+      "detail": {
+        "delivery_id": "178422e8-015f-46db-a656-edaed0d32b99",
+        "draft_id": "e235cf2f-c0c1-51ec-bc24-008fa5358771",
+        "message_id": "leadrevive-e235cf2f-c0c1-51ec-bc24-008fa5358771@leadrevive.test",
+        "status": "accepted",
+        "attempts": 2,
+        "attempted_at": "2026-10-25T06:55:12.447923Z",
+        "retry_at": null,
+        "accepted_at": "2026-10-25T06:55:12.447923Z",
+        "sink_message_id": "6Ng2IIlIMl1Cpdk2c30v2v",
+        "error": null
+      }
+    },
+    {
+      "name": "n8n webhook authentication rejects wrong shared header",
+      "result": "passed",
+      "detail": null
+    },
+    {
+      "name": "External sending remains disabled",
+      "result": "passed",
+      "detail": null
+    },
+    {
+      "name": "Original records/history still intact after real scenarios",
+      "result": "passed",
+      "detail": null
+    }
+  ],
+  "recovery_lead_id": "SYN-7F980C6F0EAA",
+  "recovery_draft_id": "80a39729-9f1f-5ab8-9978-6449111019dc",
+  "approval_lead_id": "SYN-54A5D9993934",
+  "approved_draft_id": "06186fae-e2a9-5308-aade-45fc2d46b0c3",
+  "retry_draft_id": "e235cf2f-c0c1-51ec-bc24-008fa5358771",
+  "smtp_failure": {
+    "delivery_id": "178422e8-015f-46db-a656-edaed0d32b99",
+    "draft_id": "e235cf2f-c0c1-51ec-bc24-008fa5358771",
+    "message_id": "leadrevive-e235cf2f-c0c1-51ec-bc24-008fa5358771@leadrevive.test",
+    "status": "failed",
+    "attempts": 1,
+    "attempted_at": "2026-10-25T06:55:11.188496Z",
+    "retry_at": "2026-10-25T06:56:11.188496Z",
+    "accepted_at": null,
+    "sink_message_id": null,
+    "error": "Mailpit SMTP rejected the test message (451)."
+  },
+  "smtp_retry": {
+    "delivery_id": "178422e8-015f-46db-a656-edaed0d32b99",
+    "draft_id": "e235cf2f-c0c1-51ec-bc24-008fa5358771",
+    "message_id": "leadrevive-e235cf2f-c0c1-51ec-bc24-008fa5358771@leadrevive.test",
+    "status": "accepted",
+    "attempts": 2,
+    "attempted_at": "2026-10-25T06:55:12.447923Z",
+    "retry_at": null,
+    "accepted_at": "2026-10-25T06:55:12.447923Z",
+    "sink_message_id": "6Ng2IIlIMl1Cpdk2c30v2v",
+    "error": null
+  }
+}

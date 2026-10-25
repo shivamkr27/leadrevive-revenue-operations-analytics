@@ -1,0 +1,9 @@
+{
+  "result": "passed",
+  "checks": [
+    "Clean Docker UI loads Overview and populated Recovery Queue",
+    "Clean Docker Reports UI generates and downloads an actual PDF",
+    "Reports controls pass automated WCAG A/AA checks",
+    "Mobile Reports layout fits viewport; no JavaScript errors"
+  ]
+}

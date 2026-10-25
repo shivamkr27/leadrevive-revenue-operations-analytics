@@ -1,0 +1,35 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+node_modules/
+dist/
+*.sqlite*
+*.log
+data/processed/
+data/live/
+data/backups/
+reports/generated/
+reports/previews/
+!reports/generated/.gitkeep
+.pytest_cache/
+coverage/
+test-results/
+playwright-report/
+# Power BI machine cache and local editor state. Editable model/report remain tracked.
+analytics/powerbi/**/.pbi/
+analytics/powerbi/**/cache.abf
+analytics/powerbi/**/localSettings.json
+analytics/exports/generations/.staging-*/
+analytics/exports/.pointer-*
+# Retain only the reviewed immutable generation; ad-hoc cohorts are runtime outputs.
+analytics/exports/generations/*
+!analytics/exports/generations/f03b072d3f984a95a83a34ccb865a534/
+releases/
+.vscode/
+*.tmp
+*.bak
+Thumbs.db
+Desktop.ini

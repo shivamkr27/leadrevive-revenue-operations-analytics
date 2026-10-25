@@ -1,0 +1,6 @@
+﻿segment,leads,open,contacted,qualified,won,scheduled,overdue,pipeline_exposure_inr,sla_met,sla_breached,awaiting_within_sla,recovery_rule_eligible
+Fictional Rep 1,175,140,132,78,14,130,89,20168000.0,24,151,0,89
+Fictional Rep 2,176,153,137,88,8,140,101,26462000.0,25,149,2,99
+Fictional Rep 3,181,149,135,97,20,140,96,25465000.0,32,149,0,95
+Fictional Rep 4,180,152,133,91,18,139,101,25794000.0,34,146,0,101
+Unassigned,46,41,37,29,4,37,24,6390000.0,4,42,0,0

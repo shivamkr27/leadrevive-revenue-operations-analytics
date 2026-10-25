@@ -1,0 +1,4 @@
+# Optional online validation of Microsoft PBIR schemas.
+jsonschema==4.25.1
+# Optional actual-PDF screenshot rendering for review (not a server dependency).
+PyMuPDF==1.26.5

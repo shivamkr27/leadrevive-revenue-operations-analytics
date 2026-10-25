@@ -1,0 +1,169 @@
+{
+  "id": "LeadReviveStatus",
+  "name": "LeadRevive - Versioned lead status synchronization",
+  "active": false,
+  "nodes": [
+    {
+      "id": "802e480a-8f04-52fb-812e-5cedf84d989e",
+      "name": "Authenticated status-sync webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        220
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "leadrevive/status-sync",
+        "authentication": "headerAuth",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "webhookId": "leadrevive-status-sync",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "leadrevive-backend-header",
+          "name": "LeadRevive local shared header"
+        }
+      }
+    },
+    {
+      "id": "58726485-d2aa-5e72-99a1-3e94d07a2953",
+      "name": "Validate version and synchronize lead status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        300,
+        220
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://backend:8000/api/integrations/n8n/status-sync",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({...$json.body,execution_id:$execution.id}) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "leadrevive-backend-header",
+          "name": "LeadRevive local shared header"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 1000
+    },
+    {
+      "id": "5675f2d6-5bf3-5764-8981-c3a8d54c2937",
+      "name": "Status synchronized?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        650,
+        220
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "Status synchronized?-condition",
+              "leftValue": "={{ $json.status === 'succeeded' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "2ca53f13-4b54-50fc-8ae7-def46064f5a6",
+      "name": "Audited result",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        180
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "a46ab02d-f598-59d7-905b-8f6969c772b8",
+      "name": "Stop and expose failure",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        460
+      ],
+      "parameters": {
+        "errorMessage": "={{ $json.failure_reason || 'LeadRevive operation failed; inspect durable run and delivery logs.' }}"
+      }
+    }
+  ],
+  "connections": {
+    "Authenticated status-sync webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate version and synchronize lead status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate version and synchronize lead status": {
+      "main": [
+        [
+          {
+            "node": "Status synchronized?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status synchronized?": {
+      "main": [
+        [
+          {
+            "node": "Audited result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and expose failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Kolkata",
+    "saveManualExecutions": true
+  },
+  "pinData": {},
+  "tags": []
+}

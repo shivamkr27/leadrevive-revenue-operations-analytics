@@ -1,0 +1,411 @@
+{
+  "seed": 42,
+  "origin": "SYNTHETIC SIMULATION",
+  "horizon_hours": 24,
+  "assumptions": "Manual reviews at hours 12 and 24; hourly automation scan; identical assumed two-hour owner response. No sales or revenue outcome modeled.",
+  "simulation_compute_ms": 0.041,
+  "rows": [
+    {
+      "lead_id": "SIM-000",
+      "due_hour": 20,
+      "owner": "REP-1",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 21,
+      "manual_action_hour": 26,
+      "automation_action_hour": 23
+    },
+    {
+      "lead_id": "SIM-001",
+      "due_hour": 3,
+      "owner": "REP-2",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 4,
+      "manual_action_hour": 14,
+      "automation_action_hour": 6
+    },
+    {
+      "lead_id": "SIM-002",
+      "due_hour": 0,
+      "owner": "REP-3",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 1,
+      "manual_action_hour": 14,
+      "automation_action_hour": 3
+    },
+    {
+      "lead_id": "SIM-003",
+      "due_hour": 23,
+      "owner": "REP-4",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 24,
+      "manual_action_hour": 26,
+      "automation_action_hour": 26
+    },
+    {
+      "lead_id": "SIM-004",
+      "due_hour": 8,
+      "owner": "REP-1",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 9,
+      "manual_action_hour": 14,
+      "automation_action_hour": 11
+    },
+    {
+      "lead_id": "SIM-005",
+      "due_hour": 7,
+      "owner": "REP-2",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 8,
+      "manual_action_hour": 14,
+      "automation_action_hour": 10
+    },
+    {
+      "lead_id": "SIM-006",
+      "due_hour": 7,
+      "owner": "REP-3",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 8,
+      "manual_action_hour": 14,
+      "automation_action_hour": 10
+    },
+    {
+      "lead_id": "SIM-007",
+      "due_hour": 4,
+      "owner": "REP-4",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 5,
+      "manual_action_hour": 14,
+      "automation_action_hour": 7
+    },
+    {
+      "lead_id": "SIM-008",
+      "due_hour": 23,
+      "owner": "REP-1",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 24,
+      "manual_action_hour": 26,
+      "automation_action_hour": 26
+    },
+    {
+      "lead_id": "SIM-009",
+      "due_hour": 3,
+      "owner": "REP-2",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 4,
+      "manual_action_hour": 14,
+      "automation_action_hour": 6
+    },
+    {
+      "lead_id": "SIM-010",
+      "due_hour": 21,
+      "owner": "REP-3",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 22,
+      "manual_action_hour": 26,
+      "automation_action_hour": 24
+    },
+    {
+      "lead_id": "SIM-011",
+      "due_hour": 23,
+      "owner": "REP-4",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 24,
+      "manual_action_hour": 26,
+      "automation_action_hour": 26
+    },
+    {
+      "lead_id": "SIM-012",
+      "due_hour": 17,
+      "owner": "REP-1",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 18,
+      "manual_action_hour": 26,
+      "automation_action_hour": 20
+    },
+    {
+      "lead_id": "SIM-013",
+      "due_hour": 2,
+      "owner": "REP-2",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 3,
+      "manual_action_hour": 14,
+      "automation_action_hour": 5
+    },
+    {
+      "lead_id": "SIM-014",
+      "due_hour": 18,
+      "owner": "REP-3",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 19,
+      "manual_action_hour": 26,
+      "automation_action_hour": 21
+    },
+    {
+      "lead_id": "SIM-015",
+      "due_hour": 13,
+      "owner": "REP-4",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 14,
+      "manual_action_hour": 26,
+      "automation_action_hour": 16
+    },
+    {
+      "lead_id": "SIM-016",
+      "due_hour": 1,
+      "owner": "REP-1",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 2,
+      "manual_action_hour": 14,
+      "automation_action_hour": 4
+    },
+    {
+      "lead_id": "SIM-017",
+      "due_hour": 0,
+      "owner": "REP-2",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 1,
+      "manual_action_hour": 14,
+      "automation_action_hour": 3
+    },
+    {
+      "lead_id": "SIM-018",
+      "due_hour": 2,
+      "owner": "REP-3",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 3,
+      "manual_action_hour": 14,
+      "automation_action_hour": 5
+    },
+    {
+      "lead_id": "SIM-019",
+      "due_hour": 6,
+      "owner": "REP-4",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 7,
+      "manual_action_hour": 14,
+      "automation_action_hour": 9
+    },
+    {
+      "lead_id": "SIM-020",
+      "due_hour": 7,
+      "owner": "REP-1",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 8,
+      "manual_action_hour": 14,
+      "automation_action_hour": 10
+    },
+    {
+      "lead_id": "SIM-021",
+      "due_hour": 16,
+      "owner": "REP-2",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 17,
+      "manual_action_hour": 26,
+      "automation_action_hour": 19
+    },
+    {
+      "lead_id": "SIM-022",
+      "due_hour": 19,
+      "owner": "REP-3",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 20,
+      "manual_action_hour": 26,
+      "automation_action_hour": 22
+    },
+    {
+      "lead_id": "SIM-023",
+      "due_hour": 0,
+      "owner": "REP-4",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 1,
+      "manual_action_hour": 14,
+      "automation_action_hour": 3
+    },
+    {
+      "lead_id": "SIM-024",
+      "due_hour": 17,
+      "owner": "REP-1",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 18,
+      "manual_action_hour": 26,
+      "automation_action_hour": 20
+    },
+    {
+      "lead_id": "SIM-025",
+      "due_hour": 6,
+      "owner": "REP-2",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 7,
+      "manual_action_hour": 14,
+      "automation_action_hour": 9
+    },
+    {
+      "lead_id": "SIM-026",
+      "due_hour": 22,
+      "owner": "REP-3",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 23,
+      "manual_action_hour": 26,
+      "automation_action_hour": 25
+    },
+    {
+      "lead_id": "SIM-027",
+      "due_hour": 20,
+      "owner": "REP-4",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 21,
+      "manual_action_hour": 26,
+      "automation_action_hour": 23
+    },
+    {
+      "lead_id": "SIM-028",
+      "due_hour": 22,
+      "owner": "REP-1",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 23,
+      "manual_action_hour": 26,
+      "automation_action_hour": 25
+    },
+    {
+      "lead_id": "SIM-029",
+      "due_hour": 17,
+      "owner": "REP-2",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 18,
+      "manual_action_hour": 26,
+      "automation_action_hour": 20
+    },
+    {
+      "lead_id": "SIM-030",
+      "due_hour": 13,
+      "owner": "REP-3",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 14,
+      "manual_action_hour": 26,
+      "automation_action_hour": 16
+    },
+    {
+      "lead_id": "SIM-031",
+      "due_hour": 7,
+      "owner": "REP-4",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 8,
+      "manual_action_hour": 14,
+      "automation_action_hour": 10
+    },
+    {
+      "lead_id": "SIM-032",
+      "due_hour": 14,
+      "owner": "REP-1",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 15,
+      "manual_action_hour": 26,
+      "automation_action_hour": 17
+    },
+    {
+      "lead_id": "SIM-033",
+      "due_hour": 18,
+      "owner": "REP-2",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 19,
+      "manual_action_hour": 26,
+      "automation_action_hour": 21
+    },
+    {
+      "lead_id": "SIM-034",
+      "due_hour": 8,
+      "owner": "REP-3",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 9,
+      "manual_action_hour": 14,
+      "automation_action_hour": 11
+    },
+    {
+      "lead_id": "SIM-035",
+      "due_hour": 0,
+      "owner": "REP-4",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 1,
+      "manual_action_hour": 14,
+      "automation_action_hour": 3
+    },
+    {
+      "lead_id": "SIM-036",
+      "due_hour": 5,
+      "owner": "REP-1",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 6,
+      "manual_action_hour": 14,
+      "automation_action_hour": 8
+    },
+    {
+      "lead_id": "SIM-037",
+      "due_hour": 22,
+      "owner": "REP-2",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 23,
+      "manual_action_hour": 26,
+      "automation_action_hour": 25
+    },
+    {
+      "lead_id": "SIM-038",
+      "due_hour": 13,
+      "owner": "REP-3",
+      "manual_surface_hour": 24,
+      "automation_surface_hour": 14,
+      "manual_action_hour": 26,
+      "automation_action_hour": 16
+    },
+    {
+      "lead_id": "SIM-039",
+      "due_hour": 10,
+      "owner": "REP-4",
+      "manual_surface_hour": 12,
+      "automation_surface_hour": 11,
+      "manual_action_hour": 14,
+      "automation_action_hour": 13
+    }
+  ],
+  "summary": [
+    {
+      "arm": "manual",
+      "cohort": 40,
+      "surfaced": 40,
+      "followups_completed": 20,
+      "overdue_remaining": 20,
+      "action_rate": 0.5,
+      "timing_basis": "MODELED hours; two-hour owner response assumed"
+    },
+    {
+      "arm": "automation",
+      "cohort": 40,
+      "surfaced": 40,
+      "followups_completed": 34,
+      "overdue_remaining": 6,
+      "action_rate": 0.85,
+      "timing_basis": "MODELED hours; two-hour owner response assumed"
+    }
+  ],
+  "engine_verification": [
+    {
+      "arm": "manual",
+      "followups_completed": 20,
+      "incomplete_due_work": 20,
+      "raw_overdue_kpi": 40,
+      "reminders_reserved": 0,
+      "idempotent_hour_replays": 0,
+      "measured_rule_execution_ms": 41.234,
+      "outcome_basis": "Owner actions modeled; application rule outcomes executed in disposable SQLite"
+    },
+    {
+      "arm": "automation",
+      "followups_completed": 34,
+      "incomplete_due_work": 6,
+      "raw_overdue_kpi": 40,
+      "reminders_reserved": 40,
+      "idempotent_hour_replays": 24,
+      "measured_rule_execution_ms": 495.258,
+      "outcome_basis": "Owner actions modeled; application rule outcomes executed in disposable SQLite"
+    }
+  ]
+}

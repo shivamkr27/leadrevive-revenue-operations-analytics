@@ -1,0 +1,16 @@
+# Preserve exact source/artifact bytes used by release manifests on every platform.
+# This disables newline conversion, not textual diffs.
+* -text
+# CRLF is intentional on Windows and must not be rewritten to satisfy a check.
+* whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+# Preserve upstream notices and intentionally malformed synthetic fixtures verbatim.
+third_party/notices/** -whitespace
+data/synthetic/** -whitespace
+*.pdf binary
+*.pbix binary
+*.xlsx binary
+*.pptx binary
+*.docx binary
+*.png binary
+*.PNG binary
+*.zip binary

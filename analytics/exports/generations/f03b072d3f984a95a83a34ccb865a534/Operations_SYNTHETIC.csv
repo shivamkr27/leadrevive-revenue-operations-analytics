@@ -1,0 +1,15 @@
+﻿metric,value
+unique_automation_jobs,56
+recorded_job_attempts,64
+latest_succeeded_jobs,48
+latest_failed_jobs,8
+distinct_reminded_leads,386
+reminder_items,386
+notification_drafts,15
+sink_only_approvals,6
+smtp_accepted_by_local_sink,13
+sink_capture_verified,13
+accepted_after_retry,1
+failed_or_uncertain_send_events,4
+cancelled_notifications,2
+external_live_delivery_enabled,False

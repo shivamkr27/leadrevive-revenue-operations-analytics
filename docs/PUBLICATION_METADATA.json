@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "repository": "https://github.com/shivamkr27/leadrevive-revenue-operations-analytics.git",
+  "owner": "shivamkr27",
+  "branch": "main",
+  "tag": "v1.0.0",
+  "license": "MIT for original project material; third-party terms apply",
+  "distribution": "source-only synthetic portfolio; no dependency binaries or container images",
+  "publication_status": "local preparation; push and GitHub release publication require explicit approval",
+  "external_live_delivery_enabled": false,
+  "data_origin": "SYNTHETIC",
+  "reviewed_leads": 758,
+  "fresh_seed_leads": 754,
+  "modeling_boundary": "20 versus 34 contacts is assumption-driven; exposure is not recovered revenue"
+}

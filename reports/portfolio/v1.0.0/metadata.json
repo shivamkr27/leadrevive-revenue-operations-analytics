@@ -1,0 +1,80 @@
+{
+  "report_id": "f250e3e4ec4f48f1a9720f999caaf5d1",
+  "snapshot_id": "9a80207b950500a9",
+  "generation_id": "f03b072d3f984a95a83a34ccb865a534",
+  "data_revision": "d0b3c24632131978efcdfa1d8cb57f1d46347e76d109e3a596ef0f8c8084c401",
+  "origin": "SYNTHETIC",
+  "as_of_utc": "2026-10-24T15:44:29.684236Z",
+  "window_start": "1900-01-01T00:00:00.000000Z",
+  "window_end": "2100-01-01T00:00:00.000000Z",
+  "created_at_utc": "2026-10-25T06:01:44.209309+00:00",
+  "generator_sha256": "a802ffcb4208785d946cfe6750115fdfe25b863eaf2969841aea978e36d21a5c",
+  "narrative_sha256": "9496a2b5a9f19e84fbdb58cb6cd59b4c8d3599e5f3285850f6c8e3f40db159bc",
+  "libraries": {
+    "python-pptx": "1.0.2",
+    "python-docx": "1.2.0",
+    "reportlab": "4.4.4"
+  },
+  "source_manifest_sha256": "9d5e95efae0e1a163758255e84f7fd2fe836d425590dc75c388b5bcff8e79075",
+  "kpis": {
+    "new_leads": 758,
+    "contacted": 574,
+    "uncontacted": 184,
+    "won": 64,
+    "qualified": 383,
+    "active_scheduled": 586,
+    "overdue": 411,
+    "first_response_coverage": 0.7572559366754618,
+    "qualified_rate": 0.5052770448548812,
+    "win_rate": 0.08443271767810026,
+    "overdue_rate": 0.7013651877133106,
+    "median_first_response_hours": 59.0,
+    "pipeline_exposure_inr": 104279000.0
+  },
+  "image_evidence": [
+    {
+      "file": "SS11d_PowerBI_Analysis.png",
+      "caption": "Actual Power BI estimated exposure and workload; matching frozen snapshot.",
+      "sha256": "726cafeaf8fb2029d529d906fed2903c2cc500523de56751473020987101b623"
+    },
+    {
+      "file": "SS11a_PowerBI_Workflows.png",
+      "caption": "Actual Power BI local test ledger; includes deliberate failures.",
+      "sha256": "43d9b7523331b9b2af1386d4524dbef198a9f54583008b6d122c1dfba396a24f"
+    },
+    {
+      "file": "SS11b_PowerBI_Simulation.png",
+      "caption": "Actual Power BI modeled 40-event comparison; owner timing assumed.",
+      "sha256": "2ed01c98850682b7ce526f6bde21edabfdbd41f06845aaff4d12f6adc1eb60cc"
+    },
+    {
+      "file": "SS11c_PowerBI_Reconciliation.png",
+      "caption": "Actual Power BI row-by-row DAX reconciliation; 13 metrics.",
+      "sha256": "4a5f1b9117fc3bf8b662e11c60eb5aae69cf6113fd392ff4c493d2ba06d18991"
+    }
+  ],
+  "files": {
+    "Case_Study_SYNTHETIC.md": "c060c6943bbdad141b32f6ba5ff11f5efd6645b3abbe53e84732098cae3043ea",
+    "Cost_Benefit_Assumptions.json": "68ff3136d9d71fe7673c6dd32d7f3e75279a0f559f51376dbd5b38c96e8191b3",
+    "LeadRevive_Management_SYNTHETIC.pptx": "e93bbe1b1096c7b34a2bd01f15d9b15f286afd52d771fea1d276623b3722d7e7",
+    "LeadRevive_Report_SYNTHETIC.docx": "0ddb7a72b974d3ef5b3476cf333cf2ffa8373c03ba26f233f433bfa05756050f",
+    "LeadRevive_Report_SYNTHETIC.pdf": "90a39ac9d40ee62c27517912bbcfc705d4cba314798a0a8b517a81e4ea72c253"
+  },
+  "interpretation": "Synthetic snapshot. Modeled outcomes are assumptions; SMTP accepted by local sink only. External live delivery disabled.",
+  "formatting_revision": {
+    "at_utc": "2026-10-25T06:56:39.705774+00:00",
+    "changed_files": [
+      "LeadRevive_Management_SYNTHETIC.pptx",
+      "LeadRevive_Report_SYNTHETIC.pdf"
+    ],
+    "slides": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "generator_sha256": "2684dc60c4dad205d783d533f3edb14ac4f7704ef9acbbbb7a26673e8b21d208",
+    "changes": "Enlarged focused screenshots and key findings; Automation and evidence begins on PDF page 2.",
+    "backup": "data\\backups\\review_polish_dbdb30afe8"
+  }
+}

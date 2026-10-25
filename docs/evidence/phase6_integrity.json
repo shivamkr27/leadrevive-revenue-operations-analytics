@@ -1,0 +1,100 @@
+{
+  "result": "passed",
+  "tables": {
+    "automation_runs": {
+      "before": 95,
+      "after": 97,
+      "original_hash_preserved": true,
+      "sha256": "b1024626745fa89f4de54a17ae7f5997389c004c628a82b9976a7691d8aea6a6"
+    },
+    "config": {
+      "before": 7,
+      "after": 7,
+      "original_hash_preserved": true,
+      "sha256": "b048a12280fd200ffed7ac8c570187948ba37eee748e62a0d14dafe4940839ca"
+    },
+    "import_batches": {
+      "before": 1,
+      "after": 1,
+      "original_hash_preserved": true,
+      "sha256": "06c12f8617f2008fb5a66f4ddcadbfdd6b4caa63e9de8ff971a80b3a8aa41231"
+    },
+    "owners": {
+      "before": 4,
+      "after": 4,
+      "original_hash_preserved": true,
+      "sha256": "1d1a7f7eaca8c9036c59effa0aea9982f0fbc199f96d2a5d513730c59d05f2b7"
+    },
+    "import_rejections": {
+      "before": 46,
+      "after": 46,
+      "original_hash_preserved": true,
+      "sha256": "812e233cd595234f090dd4ada312538e9265cddd1536cf695deeb65693828830"
+    },
+    "leads": {
+      "before": 758,
+      "after": 758,
+      "original_hash_preserved": true,
+      "sha256": "f7c2683d52bcf85761f7e0e281dba7cd63776bd17f4bd62882cfd76d61e9d3ea"
+    },
+    "audit_events": {
+      "before": 920,
+      "after": 922,
+      "original_hash_preserved": true,
+      "sha256": "6f8ed8bd5e885ad9084171ab27a6ecf12a52080d52af8d8cde4dc70045dbed58"
+    },
+    "exception_reviews": {
+      "before": 0,
+      "after": 0,
+      "original_hash_preserved": true,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "lead_activities": {
+      "before": 1171,
+      "after": 1171,
+      "original_hash_preserved": true,
+      "sha256": "4519ae17531fa8253ff23e62a305492f073da293fde448e047f4b60bf79aa097"
+    },
+    "lead_merge_audit": {
+      "before": 14,
+      "after": 14,
+      "original_hash_preserved": true,
+      "sha256": "2038e1eec3b00c7f811fc748ab35565f62aaa34b258f26ee1cc81536d3a5f40e"
+    },
+    "lead_status_history": {
+      "before": 767,
+      "after": 767,
+      "original_hash_preserved": true,
+      "sha256": "93095bb47f1e73f1b404b868329e5bb044f19b75b551327cfe23e506052c193f"
+    },
+    "notification_drafts": {
+      "before": 20,
+      "after": 20,
+      "original_hash_preserved": true,
+      "sha256": "42b4ffd4621f95b23ea777c19172e4b71f75c024ba01eaeca75e09d1c515e30d"
+    },
+    "notification_approvals": {
+      "before": 6,
+      "after": 6,
+      "original_hash_preserved": true,
+      "sha256": "010d91bf73cc5e2eca8ab7788a1ff46371d8112e3191bb743ff13263d35d7c95"
+    },
+    "notification_deliveries": {
+      "before": 19,
+      "after": 19,
+      "original_hash_preserved": true,
+      "sha256": "486f14ddec77c2fe5cd1b6762624369bcf07404b0eeb8b24894d4e871e7dad0d"
+    },
+    "reminder_items": {
+      "before": 404,
+      "after": 404,
+      "original_hash_preserved": true,
+      "sha256": "ea500b62831daf2cbfde98edd19db8c5e70342a2ac38ee5524127577913a35da"
+    }
+  },
+  "leads": 758,
+  "workflow_definitions_and_states_preserved": true,
+  "alembic_revision": "0005",
+  "unvalidated_foreign_keys": 0,
+  "method": "READ ONLY repeatable-read transactions; original primary-key row subsets hashed. No migration, seed or workflow execution against existing project."
+}

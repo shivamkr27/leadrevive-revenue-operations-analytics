@@ -1,0 +1,200 @@
+{
+  "id": "LeadReviveApproval",
+  "name": "LeadRevive W3 - Approved outbox, safe retry and Mailpit",
+  "active": false,
+  "nodes": [
+    {
+      "id": "7ad05ffa-fe93-50ae-9cfa-8e3675fec875",
+      "name": "Check approved outbox every five minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        80
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 5
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "817c46b9-5c86-55a9-9a56-04d5c6395313",
+      "name": "Authenticated dispatch webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        340
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "leadrevive/dispatch",
+        "authentication": "headerAuth",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "webhookId": "leadrevive-dispatch",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "leadrevive-backend-header",
+          "name": "LeadRevive local shared header"
+        }
+      }
+    },
+    {
+      "id": "3e8d5afe-4e21-5337-babc-c2c5a2da59be",
+      "name": "Check approval, reconcile Message-ID and send to sink",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        300,
+        220
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://backend:8000/api/integrations/n8n/dispatch",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({idempotency_key:$json.body?.idempotency_key || ('outbox-'+$execution.id),execution_id:$execution.id,...($json.body?.draft_ids ? {draft_ids:$json.body.draft_ids}:{}),force_retry:$json.body?.force_retry || false}) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "leadrevive-backend-header",
+          "name": "LeadRevive local shared header"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 1000
+    },
+    {
+      "id": "36462852-f422-5f90-a593-b4576e8a4405",
+      "name": "Delivery succeeded?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        650,
+        220
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "Delivery succeeded?-condition",
+              "leftValue": "={{ $json.status === 'succeeded' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "2ca53f13-4b54-50fc-8ae7-def46064f5a6",
+      "name": "Audited result",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        180
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "a46ab02d-f598-59d7-905b-8f6969c772b8",
+      "name": "Stop and expose failure",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        460
+      ],
+      "parameters": {
+        "errorMessage": "={{ $json.failure_reason || 'LeadRevive operation failed; inspect durable run and delivery logs.' }}"
+      }
+    }
+  ],
+  "connections": {
+    "Check approved outbox every five minutes": {
+      "main": [
+        [
+          {
+            "node": "Check approval, reconcile Message-ID and send to sink",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Authenticated dispatch webhook": {
+      "main": [
+        [
+          {
+            "node": "Check approval, reconcile Message-ID and send to sink",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check approval, reconcile Message-ID and send to sink": {
+      "main": [
+        [
+          {
+            "node": "Delivery succeeded?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delivery succeeded?": {
+      "main": [
+        [
+          {
+            "node": "Audited result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and expose failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Kolkata",
+    "saveManualExecutions": true
+  },
+  "pinData": {},
+  "tags": []
+}

@@ -1,0 +1,97 @@
+{
+  "id": "LeadReviveScheduleProbe",
+  "name": "[TEST - DISABLED AFTER VERIFICATION] LeadRevive schedule proof",
+  "active": false,
+  "nodes": [
+    {
+      "id": "21671093-bfcc-5211-b6a5-304eab33df57",
+      "name": "Every five seconds - test only",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        200
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "seconds",
+              "secondsInterval": 5
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "06b8fc95-e4e1-5268-8ff8-c91a659c4dbd",
+      "name": "Record zero-scope scheduled scan",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        300,
+        220
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://backend:8000/api/integrations/n8n/recovery",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({idempotency_key:'schedule-proof-83876b5fb2-'+$execution.id,execution_id:$execution.id,lead_ids:[]}) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "leadrevive-backend-header",
+          "name": "LeadRevive local shared header"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 1000
+    },
+    {
+      "id": "b6bd4b89-8be1-5ce6-a2aa-59253f860a4e",
+      "name": "No leads or messages modified",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        620,
+        200
+      ],
+      "parameters": {}
+    }
+  ],
+  "connections": {
+    "Every five seconds - test only": {
+      "main": [
+        [
+          {
+            "node": "Record zero-scope scheduled scan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record zero-scope scheduled scan": {
+      "main": [
+        [
+          {
+            "node": "No leads or messages modified",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Kolkata"
+  }
+}
